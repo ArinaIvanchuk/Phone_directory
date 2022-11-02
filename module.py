@@ -21,21 +21,21 @@ def convert_data(data, sep):
     return format_data + '\n'
 
 
-
 def create_new_contact ():
     new_contact = {}
-    new_contact['name'] = input('Input your name, please: ')
-    new_contact['surname'] = input('Input your surname, please: ')
-    new_contact['patronymic'] = input('Input your patronymic, please: ')
-    new_contact['phone'] = input('Input your phone number, please: ')
-    print(f'Your contact: {new_contact}')
+    new_contact['Name'] = input('Input your name, please: ')
+    new_contact['Surname'] = input('Input your surname, please: ')
+    new_contact['Patronymic'] = input('Input your patronymic, please: ')
+    new_contact['Phone'] = input('Input your phone number, please: ')
+    print(tabulate([new_contact], headers="keys", tablefmt="simple_grid"))
     return new_contact
+
 
 def write_data(data):
     with open(f'{filename}.txt', 'a', encoding = 'utf-8') as ph:
-        ph.write('\n' + convert_data((data), ',')) 
+        ph.write(convert_data((data), ',')) 
     with open(f'{filename}.csv', 'a', encoding = 'utf-8') as phc:
-        phc.write('\n' + convert_data((data), ':'))
+        phc.write(convert_data((data), ':'))
 
 
 def find_all_by_key(data):
